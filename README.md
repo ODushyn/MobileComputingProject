@@ -1,6 +1,6 @@
-MobileComputingProject
+#MobileComputingProject
 ======================
 
-Project for passing course "Mobile Computing" at uni.
+##What we will do guys?
 
-test credentials
+###Developers: Dushyn O., Dovgal C.
