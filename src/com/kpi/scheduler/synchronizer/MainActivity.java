@@ -1,29 +1,16 @@
 package com.kpi.scheduler.synchronizer;
 
-import java.io.IOException;
-import java.io.UnsupportedEncodingException;
-import java.net.URLDecoder;
-import java.net.URLEncoder;
-import java.util.ArrayList;
-import java.util.List;
-
-import org.apache.http.NameValuePair;
-import org.apache.http.client.ClientProtocolException;
-import org.apache.http.client.HttpClient;
-import org.apache.http.client.entity.UrlEncodedFormEntity;
-import org.apache.http.client.methods.HttpPost;
-import org.apache.http.impl.client.DefaultHttpClient;
-import org.apache.http.message.BasicNameValuePair;
-
+import com.kpi.scheduler.R;
+import com.kpi.scheduler.activity.LessonActivity;
+import com.kpi.scheduler.model.Lesson;
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.Toast;
 
 public class MainActivity extends Activity {
 	
@@ -39,12 +26,23 @@ public class MainActivity extends Activity {
 		syncButton = (Button) findViewById(R.id.syncButton);
 		tempText = (EditText) findViewById(R.id.outputText);
 		
+		//Mock data
+		final Lesson lesson = new Lesson("”правл≥нн€ проектами", "јуд. 74-15", 5, 14, 0);
+		//-----
+		final Lesson[] lessons = new Lesson[1];
+		lessons[0] = lesson;
 		syncButton.setOnClickListener(new View.OnClickListener() {
 		      @Override
 		      public void onClick(View v) {		        
-		    	  String siteUrl = URL;
-		    	  HTMLRetriever retriever = new HTMLRetriever();
-		          retriever.execute(new String[]{siteUrl});		       
+//		    	  String siteUrl = URL;
+//		    	  HTMLRetriever retriever = new HTMLRetriever();
+//		          retriever.execute(new String[]{siteUrl});	
+//		    	  LessonActivity ls = new LessonActivity();
+//		    	  ls.save(lesson);
+
+		    	  Intent intent = new Intent(getBaseContext(), LessonActivity.class);
+		    	  intent.putExtra("lessons", lessons);
+		    	  startActivity(intent);
 		      }  
 		});
 		

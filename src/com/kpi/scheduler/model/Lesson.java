@@ -1,6 +1,9 @@
 package com.kpi.scheduler.model;
 
-public class Lesson {
+import android.os.Parcel;
+import android.os.Parcelable;
+
+public class Lesson implements Parcelable{
 	
 	/**
 	 *  lesson name
@@ -13,7 +16,7 @@ public class Lesson {
 	private String place;
 	
 	/**
-	 * lesson number in day lessons order 
+	 * lesson number in day lessons order (0,1,...,5) 
 	 */
 	private int number;
 	
@@ -23,9 +26,25 @@ public class Lesson {
 	private int day;
 	
 	/**
-	 * week number (1 or 2)
+	 * week number (1 or 2, 0 if lesson appear every day)
 	 */
 	private int week;
+	
+	public Lesson(Parcel source){
+		this.name = source.readString();
+		this.place = source.readString();
+		this.number = source.readInt();
+		this.day = source.readInt();
+		this.week = source.readInt();
+	}
+	
+	public Lesson(String name, String place, int number, int day, int week) {
+		this.name = name;
+		this.place = place;
+		this.number = number;
+		this.day = day;
+		this.week = week;
+	}
 
 	public String getName() {
 		return name;
@@ -66,6 +85,34 @@ public class Lesson {
 	public void setWeek(int week) {
 		this.week = week;
 	}
+
+	@Override
+	public int describeContents() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	@Override
+	public void writeToParcel(Parcel dest, int flags) {
+		dest.writeString(this.name);
+		dest.writeString(this.place);
+		dest.writeInt(this.number);
+		dest.writeInt(this.day);
+		dest.writeInt(this.week);
+	}
+	
+	public final static Parcelable.Creator<Lesson> CREATOR = new Parcelable.Creator<Lesson>() { 
+       
+		@Override 
+        public Lesson createFromParcel(Parcel source) { 
+            return new Lesson(source); 
+        } 
+
+        @Override 
+        public Lesson[] newArray(int size) { 
+            return new Lesson[size]; 
+        } 
+    }; 
 	
 
 }

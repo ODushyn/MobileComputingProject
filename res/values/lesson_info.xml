@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>  
+     <integer name="duration_hours">1</integer>
+     <integer name="duration_mins">35</integer>
+
+     <!-- Lessons time -->
+     
+     <string-array name="lessons_time">
+        <item>8:30 10:05</item>
+        <item>10:25 12:00</item>
+        <item>12:20 13:55</item>
+        <item>14:15 15:50</item>
+        <item>16:10 17:45</item>
+        <item>18:05 19:40</item>
+    </string-array>
+     
+     <!-- =================================== -->
+     
+
+</resources>
