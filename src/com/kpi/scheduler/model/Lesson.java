@@ -16,7 +16,7 @@ public class Lesson implements Parcelable{
 	private String place;
 	
 	/**
-	 * lesson number in day lessons order (0,1,...,5) 
+	 * lesson number in day lessons order (1,2,...,6) 
 	 */
 	private int number;
 	
@@ -28,14 +28,14 @@ public class Lesson implements Parcelable{
 	/**
 	 * week number (1 or 2, 0 if lesson appear every day)
 	 */
-	private int week;
+	private int weekOccur;
 	
 	public Lesson(Parcel source){
 		this.name = source.readString();
 		this.place = source.readString();
 		this.number = source.readInt();
 		this.day = source.readInt();
-		this.week = source.readInt();
+		this.weekOccur = source.readInt();
 	}
 	
 	public Lesson(String name, String place, int number, int day, int week) {
@@ -43,7 +43,7 @@ public class Lesson implements Parcelable{
 		this.place = place;
 		this.number = number;
 		this.day = day;
-		this.week = week;
+		this.weekOccur = week;
 	}
 
 	public String getName() {
@@ -78,17 +78,16 @@ public class Lesson implements Parcelable{
 		this.day = day;
 	}
 
-	public int getWeek() {
-		return week;
+	public int getWeekOccur() {
+		return weekOccur;
 	}
 
-	public void setWeek(int week) {
-		this.week = week;
+	public void setWeekOccur(int week) {
+		this.weekOccur = week;
 	}
 
 	@Override
 	public int describeContents() {
-		// TODO Auto-generated method stub
 		return 0;
 	}
 
@@ -98,7 +97,7 @@ public class Lesson implements Parcelable{
 		dest.writeString(this.place);
 		dest.writeInt(this.number);
 		dest.writeInt(this.day);
-		dest.writeInt(this.week);
+		dest.writeInt(this.weekOccur);
 	}
 	
 	public final static Parcelable.Creator<Lesson> CREATOR = new Parcelable.Creator<Lesson>() { 
