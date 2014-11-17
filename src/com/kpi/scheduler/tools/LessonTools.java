@@ -6,7 +6,7 @@ public class LessonTools extends AsyncTask<String, Void, String>{
 
 	@Override
 	protected String doInBackground(String... params) {
-		// TODO Auto-generated method stub
+		// TODO need this class?
 		return null;
 	}
 

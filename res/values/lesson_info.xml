@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>  
-     <integer name="duration_hours">1</integer>
-     <integer name="duration_mins">35</integer>
-
+     
+     <string name="first_semester_end">0201</string>
+	 <string name="second_semester_end">0601</string>
      <!-- Lessons time -->
      
      <string-array name="lessons_time">

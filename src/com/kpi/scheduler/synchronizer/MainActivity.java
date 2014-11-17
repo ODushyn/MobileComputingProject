@@ -27,7 +27,7 @@ public class MainActivity extends Activity {
 		tempText = (EditText) findViewById(R.id.outputText);
 		
 		//Mock data
-		final Lesson lesson = new Lesson("Управління проектами", "Ауд. 74-15", 5, 14, 0);
+		final Lesson lesson = new Lesson("Test", "Ауд. 74-15", 5, 3, 1);
 		//-----
 		final Lesson[] lessons = new Lesson[1];
 		lessons[0] = lesson;
@@ -42,6 +42,8 @@ public class MainActivity extends Activity {
 
 		    	  Intent intent = new Intent(getBaseContext(), LessonActivity.class);
 		    	  intent.putExtra("lessons", lessons);
+		    	  intent.putExtra("semester", 1);
+		    	  intent.putExtra("week", 2);
 		    	  startActivity(intent);
 		      }  
 		});
