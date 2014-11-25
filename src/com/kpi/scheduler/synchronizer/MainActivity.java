@@ -13,9 +13,7 @@ import android.widget.Button;
 import android.widget.EditText;
 
 public class MainActivity extends Activity {
-	
-	protected static final String URL = "http://www.fpm.ntu-kpi.kiev.ua/scheduler/group.do";
-	protected static final String URL2 = "http://rozklad.kpi.ua/Schedules/ViewSchedule.aspx?g=d5992d1b-4dcf-41e5-8517-5516c4f8868d";
+		
 	public static Button syncButton;
 	public static EditText tempText;
 	
@@ -34,17 +32,15 @@ public class MainActivity extends Activity {
 		syncButton.setOnClickListener(new View.OnClickListener() {
 		      @Override
 		      public void onClick(View v) {		        
-//		    	  String siteUrl = URL;
-//		    	  HTMLRetriever retriever = new HTMLRetriever();
-//		          retriever.execute(new String[]{siteUrl});	
-//		    	  LessonActivity ls = new LessonActivity();
-//		    	  ls.save(lesson);
-
-		    	  Intent intent = new Intent(getBaseContext(), LessonActivity.class);
-		    	  intent.putExtra("lessons", lessons);
-		    	  intent.putExtra("semester", 1);
-		    	  intent.putExtra("week", 2);
-		    	  startActivity(intent);
+		    	  
+		    	  HTMLRetriever retriever = new HTMLRetriever();
+		          retriever.execute(new String[]{" Ã-31Ï"});	
+		    	 
+//		    	  Intent intent = new Intent(getBaseContext(), LessonActivity.class);
+//		    	  intent.putExtra("lessons", lessons);
+//		    	  intent.putExtra("semester", 1);
+//		    	  intent.putExtra("week", 2);
+//		    	  startActivity(intent);
 		      }  
 		});
 		
