@@ -2,16 +2,15 @@ package com.kpi.scheduler.activity;
 
 import java.util.ArrayList;
 import java.util.Calendar;
-import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.Map.Entry;
 import java.util.TimeZone;
 
 import android.app.Activity;
 import android.content.ContentResolver;
 import android.content.ContentValues;
+import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.Parcelable;
@@ -19,6 +18,7 @@ import android.provider.CalendarContract.Events;
 
 import com.kpi.scheduler.R;
 import com.kpi.scheduler.model.Lesson;
+import com.kpi.scheduler.synchronizer.MainActivity;
 import com.kpi.scheduler.tools.Constants;
 
 public class LessonActivity extends Activity {
@@ -31,7 +31,7 @@ public class LessonActivity extends Activity {
 	private TimeZone tz;
 	
 	public void save(final Parcelable[] lessons){
-		//((List<Lesson>)getIntent().getExtras().getSerializable("lessons")).toArray();
+
 		new AsyncTask<Parcelable, Void, String>(){
 
 			@Override
@@ -41,27 +41,24 @@ public class LessonActivity extends Activity {
 					Lesson lesson = (Lesson)pl;
 					saveLesson(lesson, 6);
 				}
-				return "URAA";
+				return null;
 			}
 			
 		    @Override
 		    protected void onPostExecute(String s) {
 		        super.onPostExecute(s);
 		    }
-			//(Lesson[]) lessons.toArray()
 		}.execute(lessons);	
 	}
 	
 
 	private void saveLesson(Lesson lesson, long calID){
-		
-		for(Entry<Integer, LessonTime> entry : lessonsTime.entrySet()){
-			System.out.println(entry.getKey() + " : " + entry.getValue());
-		}
+			
+		System.out.println("Current week: " + this.week);
 		
 		int lessonStartDay =  startDay(lesson.getDay(), lesson.getWeekOccur());
-		System.out.println("start day: " + lessonStartDay);
-		
+		System.out.println("start day: " + lessonStartDay + this.month);
+		System.out.println("Lesson week: " + lesson.getWeekOccur());
 		Calendar beginTime = Calendar.getInstance();
 		int beginH = lessonsTime.get(lesson.getNumber()).start_h;
 		int beginM = lessonsTime.get(lesson.getNumber()).start_m;
@@ -159,6 +156,8 @@ public class LessonActivity extends Activity {
 		}
 		cal.add(Calendar.DATE,7);
 		cal.set(Calendar.DAY_OF_WEEK, dayInWeek);
+		this.month = cal.get(Calendar.MONTH);
+		
 		return cal.get(Calendar.DAY_OF_MONTH);
 	}
 
@@ -192,6 +191,11 @@ public class LessonActivity extends Activity {
 		System.out.println(tz.getDisplayName());
 		//saving
 		save(getIntent().getParcelableArrayExtra("lessons"));
+
+		Intent intentApp = new Intent(LessonActivity.this, 
+                MainActivity.class);
+		LessonActivity.this.startActivity(intentApp);
 	}
+	
 	
 }

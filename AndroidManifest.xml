@@ -25,7 +25,7 @@
         </activity> 
         <activity
             android:name=".activity.LessonActivity"
-            android:label="@string/blabla" >
+            android:label="@string/sync_act" >
              <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

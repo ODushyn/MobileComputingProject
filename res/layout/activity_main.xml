@@ -6,29 +6,33 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
+    android:textAlignment="center"
     tools:context="com.kpi.scheduler.synchronizer.MainActivity" >
+
+    <EditText
+        android:id="@+id/groupNo"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/syncButton"
+        android:layout_alignEnd="@+id/syncButton"
+        android:layout_alignStart="@+id/syncButton"
+        android:layout_marginBottom="70dp"
+        android:ems="10"
+        android:gravity="center"
+        android:padding="@dimen/activity_vertical_margin"
+        android:textAlignment="gravity" >
+
+        <requestFocus />
+    </EditText>
 
     <Button
         android:id="@+id/syncButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
+        android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="26dp"
+        android:layout_marginBottom="184dp"
         android:minWidth="200dp"
         android:text="@string/sync_button" />
-
-    <EditText
-        android:id="@+id/outputText"
-        android:layout_width="fill_parent"
-        android:layout_height="200dp"
-        android:layout_alignParentBottom="true"
-        android:layout_marginBottom="55dp"
-        android:ems="10"
-        android:inputType="textMultiLine"
-        android:width="100dp" >
-
-        <requestFocus />
-    </EditText>
 
 </RelativeLayout>

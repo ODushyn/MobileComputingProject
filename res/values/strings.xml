@@ -4,5 +4,6 @@
     <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
     <string name = "sync_button"> Sync </string>
-	<string name="blabla">BLABLA</string>
+    <string name = "default_group">КМ-31м</string>
+	<string name="sync_act">Synchronization</string>
 </resources>
