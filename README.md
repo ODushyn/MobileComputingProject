@@ -27,4 +27,4 @@ Contributors:
 - Dovgopol O.
 
 ##License
-MIT license
+[MIT license](http://www.opensource.org/licenses/MIT)
